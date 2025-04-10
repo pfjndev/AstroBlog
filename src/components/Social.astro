@@ -1,21 +1,13 @@
 ---
-const { platform, username, ...props } = Astro.props;
-const textCase = props.textCase || "capitalize";
+const { platform, username } = Astro.props
 ---
-
 <a href={`https://www.${platform}.com/${username}`}>{platform}</a>
 
-<style define:vars={{ textCase }}>
-    a {
-        padding: 0.5rem 1rem;
-        color: white;
-        background-color: #4c1d95;
-        border-radius: 0.5rem;
-        text-decoration: none;
-        text-transform: var(--textCase);
-    }
-    a:hover {
-        background-color: #8431ff;
-        animation: background-color 1s ease-in-out;
-    }
+<style>
+  a {
+    padding: 0.5rem 1rem;
+    color: white;
+    background-color: #4c1d95;
+    text-decoration: none;
+  }
 </style>

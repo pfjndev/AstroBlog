@@ -1,7 +1,8 @@
 {
-  "name": "astroblog",
+  "name": "@example/minimal",
   "type": "module",
   "version": "0.0.1",
+  "private": true,
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
@@ -9,9 +10,9 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/preact": "^4.0.8",
+    "@astrojs/preact": "^4.0.2",
     "@astrojs/rss": "^4.0.11",
-    "astro": "^5.6.1",
-    "preact": "^10.26.5"
+    "astro": "^5.1.7",
+    "preact": "^10.25.4"
   }
 }

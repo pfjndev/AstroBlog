@@ -1,8 +1,10 @@
+// @ts-check
 import { defineConfig } from "astro/config";
 
 import preact from "@astrojs/preact";
 
+// https://astro.build/config
 export default defineConfig({
-  site: "https://moonlit-seahorse-aa17d2.netlify.app",
-  integrations: [preact()]
+  site: "https://example.com",
+  integrations: [preact()],
 });
