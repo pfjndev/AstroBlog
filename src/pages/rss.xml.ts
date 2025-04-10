@@ -1,12 +1,18 @@
-import rss, { pagesGlobToRssItems } from '@astrojs/rss';
-import type { APIContext } from 'astro';
+import rss from '@astrojs/rss';
+import { getCollection } from 'astro:content';
 
-export async function GET(context: APIContext) {
+export async function GET(context) {
+  const posts = await getCollection("blog");
   return rss({
     title: 'Astro Learner | Blog',
     description: 'My journey learning Astro',
-    site: context.site ?? "https://moonlit-seahorse-aa17d2.netlify.app",
-    items: await pagesGlobToRssItems(import.meta.glob('./**/*.md')),
+    site: context.site,
+    items: posts.map((post) => ({
+      title: post.data.title,
+      pubDate: post.data.pubDate,
+      description: post.data.description,
+      link: `/posts/${post.id}/`,
+    })),
     customData: `<language>en-us</language>`,
-  });
+  })
 }
