@@ -1,7 +1,26 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Greeting from "../components/Greeting";
 const pageTitle = "Home Page";
 ---
+
 <BaseLayout pageTitle={pageTitle}>
   <h2>My awesome blog subtitle</h2>
+  {
+    /*
+      Hydrated components: 
+      
+      client:load
+        This directive tells Astro to send and rerun
+        its JavaScript on the client when the page loads,
+        making the component interactive. This is called a hydrated component.
+      
+      client:visible
+        This directive makes the component visible only when it is in the viewport.
+        This is useful for lazy loading components that are not immediately visible to the user.
+      more...
+    */
+  }
+
+  <Greeting client:load messages={["Hej", "Hallo", "Hola", "Habari"]} />
 </BaseLayout>
